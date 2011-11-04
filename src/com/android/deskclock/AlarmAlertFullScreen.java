@@ -94,7 +94,8 @@ public class AlarmAlertFullScreen extends Activity {
         requestWindowFeature(android.view.Window.FEATURE_NO_TITLE);
 
         final Window win = getWindow();
-        win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+        win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+                | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         // Turn on the screen unless we are being launched from the AlarmAlert
         // subclass.
         if (!getIntent().getBooleanExtra(SCREEN_OFF, false)) {
