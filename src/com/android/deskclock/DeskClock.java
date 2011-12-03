@@ -741,44 +741,6 @@ public class DeskClock extends Activity {
         final ImageButton alarmButton = (ImageButton) findViewById(R.id.alarm_button);
         alarmButton.setOnClickListener(alarmClickListener);
 
-        final ImageButton galleryButton = (ImageButton) findViewById(R.id.gallery_button);
-        galleryButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                try {
-                    startActivity(new Intent(
-                        Intent.ACTION_VIEW,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                            .putExtra("slideshow", true)
-                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                } catch (android.content.ActivityNotFoundException e) {
-                    Log.e(LOG_TAG, "Couldn't launch image browser", e);
-                }
-            }
-        });
-
-        final ImageButton musicButton = (ImageButton) findViewById(R.id.music_button);
-        musicButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                try {
-                    startActivity(new Intent(MediaStore.INTENT_ACTION_MUSIC_PLAYER)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP));
-
-                } catch (android.content.ActivityNotFoundException e) {
-                    Log.e(LOG_TAG, "Couldn't launch music browser", e);
-                }
-            }
-        });
-
-        final ImageButton homeButton = (ImageButton) findViewById(R.id.home_button);
-        homeButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                startActivity(
-                    new Intent(Intent.ACTION_MAIN)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        .addCategory(Intent.CATEGORY_HOME));
-            }
-        });
-
         final ImageButton nightmodeButton = (ImageButton) findViewById(R.id.nightmode_button);
         nightmodeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
